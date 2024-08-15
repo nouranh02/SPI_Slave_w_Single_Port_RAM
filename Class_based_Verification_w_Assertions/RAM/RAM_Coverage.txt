@@ -1,0 +1,1940 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /RAM_tb/DUT/ram_sva_inst
+=== Design Unit: work.RAM_sva
+=================================================================================
+
+Assertion Coverage:
+    Assertions                      11        11         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/RAM_tb/DUT/ram_sva_inst/assertion_reset
+                     RAM_sva.sv(121)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_rx_inv
+                     RAM_sva.sv(124)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_save_wr
+                     RAM_sva.sv(127)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_wr_d
+                     RAM_sva.sv(130)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_save_rd
+                     RAM_sva.sv(133)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_rd_d
+                     RAM_sva.sv(136)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_tx_a
+                     RAM_sva.sv(139)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_tx_in
+                     RAM_sva.sv(142)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_wr_op
+                     RAM_sva.sv(145)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_rd_op
+                     RAM_sva.sv(148)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_main
+                     RAM_sva.sv(151)                    0          1
+
+Directive Coverage:
+    Directives                      11        11         0   100.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/RAM_tb/DUT/ram_sva_inst/cover_reset     RAM_sva Verilog  SVA  RAM_sva.sv(122)  939 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_rx_inv    RAM_sva Verilog  SVA  RAM_sva.sv(125) 4530 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_save_wr   RAM_sva Verilog  SVA  RAM_sva.sv(128) 6793 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_wr_d      RAM_sva Verilog  SVA  RAM_sva.sv(131) 11526 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_save_rd   RAM_sva Verilog  SVA  RAM_sva.sv(134) 3593 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_rd_d      RAM_sva Verilog  SVA  RAM_sva.sv(137) 5649 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_tx_a      RAM_sva Verilog  SVA  RAM_sva.sv(140) 5649 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_tx_in     RAM_sva Verilog  SVA  RAM_sva.sv(143) 21912 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_wr_op     RAM_sva Verilog  SVA  RAM_sva.sv(146) 4158 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_rd_op     RAM_sva Verilog  SVA  RAM_sva.sv(149) 1501 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_main      RAM_sva Verilog  SVA  RAM_sva.sv(152)   37 Covered   
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       2         2         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /RAM_tb/DUT/ram_sva_inst --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File RAM_sva.sv
+    1                                                module RAM_sva(clk, rst_n, rx_valid, din, tx_valid, dout, mem, wr_addr, rd_addr);
+    2                                                
+    3                                                	//Parameters
+    4                                                	parameter ADDR_SIZE = 8;
+    5                                                	parameter MEM_DEPTH = 256;
+    6                                                
+    7                                                	//I/O Ports of DUT
+    8                                                	input clk, rst_n, rx_valid, tx_valid;
+    9                                                	input [ADDR_SIZE+1:0] din;
+    10                                               
+    11                                               
+    12                                               	//Internal Signals of DUT
+    13                                               	input [ADDR_SIZE-1:0] wr_addr, rd_addr, dout;
+    14                                               	input [ADDR_SIZE-1:0] mem [MEM_DEPTH-1:0];
+    15                                               
+    16                                               	//For Visual Clarity
+    17                                               	logic [1:0] signal;
+    18                                               	logic [ADDR_SIZE-1:0] data;
+    19              1                      29540     	assign signal = din[ADDR_SIZE+1 : ADDR_SIZE];
+    20              1                      37730     	assign data = din[ADDR_SIZE-1 : 0];
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         96        96         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /RAM_tb/DUT/ram_sva_inst --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                               clk           1           1                              100.00 
+                                         data[7-0]           1           1                              100.00 
+                                          din[0-9]           1           1                              100.00 
+                                         dout[0-7]           1           1                              100.00 
+                                      rd_addr[0-7]           1           1                              100.00 
+                                             rst_n           1           1                              100.00 
+                                          rx_valid           1           1                              100.00 
+                                       signal[1-0]           1           1                              100.00 
+                                          tx_valid           1           1                              100.00 
+                                      wr_addr[0-7]           1           1                              100.00 
+
+Total Node Count     =         48 
+Toggled Node Count   =         48 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (96 of 96 bins)
+
+=================================================================================
+=== Instance: /RAM_tb/DUT
+=== Design Unit: work.ram
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         7         7         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /RAM_tb/DUT
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ram.sv
+------------------------------------IF Branch------------------------------------
+    58                                     51112     Count coming in to IF
+    58              1                      11844     		if(~rst_n) begin
+    64              1                      31416     		else if(rx_valid) begin
+                                            7852     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    65                                     31416     Count coming in to CASE
+    66              1                       7887     				2'b00: begin
+    70              1                      12998     				2'b01: begin
+    74              1                       4444     				2'b10: begin
+    78              1                       6087     				default: begin
+Branch totals: 4 hits of 4 branches = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      13        13         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /RAM_tb/DUT --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ram.sv
+    1                                                module ram (din,clk,rst_n,rx_valid,dout,tx_valid);
+    2                                                	parameter MEM_DEPTH = 256;
+    3                                                	parameter ADDR_SIZE = 8;
+    4                                                
+    5                                                	input [9:0] din;
+    6                                                	input clk, rst_n , rx_valid;
+    7                                                	output reg [7:0] dout;
+    8                                                	output reg tx_valid;
+    9                                                
+    10                                               
+    11                                               	//Internal Signals are to be passed to Assertions -> Whitebox Verification
+    12                                               	//Datatype converted from (reg) to (logic)
+    13                                               	logic [ADDR_SIZE-1:0] write_addr, read_addr;
+    14                                               	logic [ADDR_SIZE-1:0] mem [MEM_DEPTH-1:0];
+    15                                               
+    16                                               
+    17                                               
+    18                                               /////////////////////////////////Original Code//////////////////////////////////
+    19                                               
+    20                                               /*	
+    21                                               	integer i=0;
+    22                                               	always @(posedge clk,negedge rst_n) begin
+    23                                               		if(~rst_n) begin
+    24                                               			for (i=0; i < MEM_DEPTH; i=i+1) begin 		//memory values should not equal zero following each reset, only Module outputs (and wr/rd addresses).
+    25                                               				mem[i] = 0;
+    26                                               			end
+    27                                               		end
+    28                                               		else if(rx_valid) begin
+    29                                               			case (din[9:8])								//Should use parameter (ADDR_SIZE) instead of actual size
+    30                                               				2'b00: begin
+    31                                               					write_addr <= din[7:0];
+    32                                               					tx_valid <=0;
+    33                                               				end
+    34                                               				2'b01: begin
+    35                                               					mem [write_addr] <= din[7:0];
+    36                                               					tx_valid <=0;
+    37                                               				end	
+    38                                               				2'b10: begin
+    39                                               					read_addr <= din[7:0];
+    40                                               					tx_valid <=0;
+    41                                               				end
+    42                                               				2'b11: begin							//For Code Coverage = 100% -> This branch is moved to default
+    43                                               					dout <= mem[read_addr];
+    44                                               					tx_valid <=1;
+    45                                               				end
+    46                                               			endcase
+    47                                               		end
+    48                                               		else 
+    49                                               			tx_valid =0;
+    50                                               	end
+    51                                               */
+    52                                               	
+    53                                               
+    54                                               
+    55                                               /////////////////////////////////Edited Code//////////////////////////////////
+    56                                               
+    57              1                      51112     	always @(posedge clk,negedge rst_n) begin
+    58                                               		if(~rst_n) begin
+    59              1                      11844     			dout <= 0;
+    60              1                      11844     			tx_valid <= 0;
+    61              1                      11844     			write_addr <= 0;
+    62              1                      11844     			read_addr <= 0;
+    63                                               		end
+    64                                               		else if(rx_valid) begin
+    65                                               			case (din[ADDR_SIZE+1:ADDR_SIZE])
+    66                                               				2'b00: begin
+    67              1                       7887     					write_addr <= din[ADDR_SIZE-1:0];
+    68              1                       7887     					tx_valid <=0;
+    69                                               				end
+    70                                               				2'b01: begin
+    71              1                      12998     					mem [write_addr] <= din[ADDR_SIZE-1:0];
+    72              1                      12998     					tx_valid <=0;
+    73                                               				end	
+    74                                               				2'b10: begin
+    75              1                       4444     					read_addr <= din[ADDR_SIZE-1:0];
+    76              1                       4444     					tx_valid <=0;
+    77                                               				end
+    78                                               				default: begin
+    79              1                       6087     					dout <= mem[read_addr];
+    80              1                       6087     					tx_valid <=1;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         76        76         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /RAM_tb/DUT --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                               clk           1           1                              100.00 
+                                          din[0-9]           1           1                              100.00 
+                                         dout[7-0]           1           1                              100.00 
+                                    read_addr[7-0]           1           1                              100.00 
+                                             rst_n           1           1                              100.00 
+                                          rx_valid           1           1                              100.00 
+                                          tx_valid           1           1                              100.00 
+                                   write_addr[7-0]           1           1                              100.00 
+
+Total Node Count     =         38 
+Toggled Node Count   =         38 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (76 of 76 bins)
+
+=================================================================================
+=== Instance: /RAM_tb
+=== Design Unit: work.RAM_tb
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       4         4         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/RAM_tb/stimulus_gen_reset/#anonblk#90584738#138#4#/#ublk#90584738#138/immed__139
+                     RAM_tb.sv(139)                     0          1
+/RAM_tb/ram_initial/#anonblk#90584738#185#4#/#ublk#90584738#185/immed__189
+                     RAM_tb.sv(189)                     0          1
+/RAM_tb/stimulus_gen1/#anonblk#90584738#207#4#/#ublk#90584738#207/immed__208
+                     RAM_tb.sv(208)                     0          1
+/RAM_tb/stimulus_gen2/#anonblk#90584738#226#4#/#ublk#90584738#226/immed__227
+                     RAM_tb.sv(227)                     0          1
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        21        16         5    76.19%
+
+================================Branch Details================================
+
+Branch Coverage for instance /RAM_tb
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File RAM_tb.sv
+------------------------------------IF Branch------------------------------------
+    154                                    10476     Count coming in to IF
+    154             1                    ***0***     		if(dout !== 0) begin
+    158             1                      10476     		else correct_count++;
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    160                                    10476     Count coming in to IF
+    160             1                    ***0***     		if(tx_valid !== 0) begin
+    164             1                      10476     		else correct_count++;
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    249                                    20000     Count coming in to IF
+    249             1                        476     		if(!rst_n) check_reset;
+    250             1                      19524     		else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    253                                    19524     Count coming in to IF
+    253             1                    ***0***     			if(dout !== dout_exp) begin
+    257             1                      19524     			else correct_count++;
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    259                                    19524     Count coming in to IF
+    259             1                    ***0***     			if(tx_valid !== tx_valid_exp) begin
+    263             1                      19524     			else correct_count++;
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    274                                    30000     Count coming in to IF
+    274             1                        980     		if(!rst_n) begin
+    280             1                      29020     		else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    281                                    29020     Count coming in to IF
+    281             1                      21157     			if(rx_valid) begin
+                                            7863     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    282                                    21157     Count coming in to CASE
+    283             1                       5540     				STORE_WR_ADDR:	WR_addr = data;
+    285             1                       9818     				WRITE_DATA: 	RAM_assoc[WR_addr] = data;
+    287             1                       2271     				STORE_RD_ADDR: 	RD_addr = data;
+    289             1                       3528     				READ_DATA: 		dout_exp = RAM_assoc[RD_addr];
+                                         ***0***     All False Count
+Branch totals: 4 hits of 5 branches = 80.00%
+
+------------------------------------IF Branch------------------------------------
+    292                                    21157     Count coming in to IF
+    292             1                       3528     				if(signal == READ_DATA) tx_valid_exp = 1;
+    293             1                      17629     				else tx_valid_exp = 0;
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       5         1         4    20.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /RAM_tb --
+
+  File RAM_tb.sv
+----------------Focused Condition View-------------------
+Line       154 Item    1  (dout !== 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (dout !== 0)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (dout !== 0)_0        -                             
+  Row   2:    ***0***  (dout !== 0)_1        -                             
+
+----------------Focused Condition View-------------------
+Line       160 Item    1  (tx_valid !== 1'b0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+           Input Term   Covered  Reason for no coverage   Hint
+          -----------  --------  -----------------------  --------------
+  (tx_valid !== 1'b0)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target             Non-masking condition(s)      
+ ---------  ---------  --------------------   -------------------------     
+  Row   1:          1  (tx_valid !== 1'b0)_0  -                             
+  Row   2:    ***0***  (tx_valid !== 1'b0)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       253 Item    1  (dout !== dout_exp)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+           Input Term   Covered  Reason for no coverage   Hint
+          -----------  --------  -----------------------  --------------
+  (dout !== dout_exp)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target             Non-masking condition(s)      
+ ---------  ---------  --------------------   -------------------------     
+  Row   1:          1  (dout !== dout_exp)_0  -                             
+  Row   2:    ***0***  (dout !== dout_exp)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       259 Item    1  (tx_valid !== tx_valid_exp)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+                   Input Term   Covered  Reason for no coverage   Hint
+                  -----------  --------  -----------------------  --------------
+  (tx_valid !== tx_valid_exp)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target                     Non-masking condition(s)      
+ ---------  ---------  --------------------           -------------------------     
+  Row   1:          1  (tx_valid !== tx_valid_exp)_0  -                             
+  Row   2:    ***0***  (tx_valid !== tx_valid_exp)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       292 Item    1  (signal == READ_DATA)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+             Input Term   Covered  Reason for no coverage   Hint
+            -----------  --------  -----------------------  --------------
+  (signal == READ_DATA)         Y
+
+     Rows:       Hits  FEC Target               Non-masking condition(s)      
+ ---------  ---------  --------------------     -------------------------     
+  Row   1:          1  (signal == READ_DATA)_0  -                             
+  Row   2:          1  (signal == READ_DATA)_1  -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      90        82         8    91.11%
+
+================================Statement Details================================
+
+Statement Coverage for instance /RAM_tb --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File RAM_tb.sv
+    4                                                module RAM_tb;
+    5                                                	//Parameters
+    6                                                	parameter MEM_DEPTH = 256;
+    7                                                	parameter ADDR_SIZE = 8;
+    8                                                
+    9                                                	//Inputs to DUT
+    10                                               	bit clk, rst_n, rx_valid;
+    11                                               	logic [ADDR_SIZE+1:0] din;
+    12                                               
+    13                                               	//Outputs of DUT
+    14                                               	bit tx_valid;
+    15                                               	logic [ADDR_SIZE-1:0] dout;
+    16                                               
+    17                                               	//Associative Array for RAM
+    18                                               	logic [ADDR_SIZE-1:0] RAM_assoc [logic [ADDR_SIZE-1:0]];
+    19                                               
+    20                                               	//Internal Signals for Saving RD/WR Addresses
+    21                                               	bit [ADDR_SIZE-1:0] WR_addr, RD_addr;
+    22                                               
+    23                                               	/*Internal signals (For Visual Clarity) defining:
+    24                                               	 					- signal: 1st 2-bits of din
+    25                                               	 					- data:   content of din*/
+    26                                               	signal_e signal;
+    27                                               	logic [ADDR_SIZE-1:0] data;
+    28                                               
+    29                                               	//Outputs of Golden Model
+    30                                               	bit tx_valid_exp;
+    31                                               	bit [ADDR_SIZE-1:0] dout_exp;
+    32                                               
+    33                                               	//Number of Tests
+    34                                               	parameter TESTS = 10000;
+    35                                               
+    36                                               	//Correct Count and Error Count Signals
+    37                                               	int correct_count, error_count;
+    38                                               
+    39                                               	//Object Creation
+    40              1                          1     	RAM_class #(ADDR_SIZE) ram_c = new();
+    41                                               
+    42                                               
+    43                                               	//Clock Generation
+    44                                               	initial begin
+    45              1                          1        		clk = 0;
+    46              1                          1        		forever #1 clk = ~clk;
+    46              2                     140959     
+    46              3                     140958     
+    47                                               	end
+    48                                               
+    49                                               	//Sampling Clock
+    50                                               	bit samp_clk;
+    51                                               	initial begin
+    52              1                          1        		samp_clk = 0;
+    53              1                          1        		forever #2 samp_clk = ~samp_clk;
+    53              2                      70480     
+    53              3                      70479     
+    54                                               	end
+    55                                               
+    56                                               	//DUT Instantiation
+    57                                               	ram #(.MEM_DEPTH(MEM_DEPTH), .ADDR_SIZE(ADDR_SIZE)) DUT(.clk(clk), .rst_n(rst_n), .rx_valid(rx_valid), .din(din), .tx_valid(tx_valid), .dout(dout));
+    58                                               
+    59                                               	//Binding Assertions
+    60                                               	bind DUT RAM_sva ram_sva_inst (clk, rst_n, rx_valid, din, tx_valid, dout, mem, write_addr, read_addr);
+    61                                               
+    62                                               
+    63                                               	//Sampling for Covergroup
+    64                                               	/*always @(posedge clk or negedge rst_n) begin
+    65                                               		if(~rst_n) ram_c.RAM_cg.stop();
+    66                                               		else ram_c.RAM_cg.sample();
+    67                                               	end*/
+    68                                               
+    69              1                      35241     	always @(posedge samp_clk) ram_c.RAM_cg.sample();
+    69              2                      35240     
+    70                                               
+    71                                               	initial begin
+    72                                               
+    73                                               		//Assert Reset - Initial State
+    74              1                          1     		assert_reset;
+    75                                               
+    76                                               
+    77                                               
+    78                                               
+    79                                               		/*TEST 0: 	- Checks (rst_n) Functionality
+    80                                               					- RAM outputs (dout, tx_valid) reset to zero @(rst_n = 0)
+    81                                               					- Randomization Under No Constraints*/
+    82              1                          1     		stimulus_gen_reset;
+    83                                               
+    84                                               
+    85                                               
+    86                                               		//Deassert Reset
+    87              1                          1     		deassert_reset;
+    88                                               
+    89                                               
+    90                                               
+    91                                               
+    92                                               		/*Writing data 	- Filling up RAM with initial values
+    93                                               						- rx_valid = 1
+    94                                               						- 1st 2-bits of din (signal) = 2'b00: Save WR Address
+    95                                               						- THEN:              signal  = 2'b01: WRITE Operation*/
+    96              1                          1     		ram_initial;
+    97                                               
+    98                                               
+    99                                               
+    100                                              
+    101                                              		/*TEST 1:	- Checks Normal Operation of RAM
+    102                                              					- RAM should use din 					if(rx_valid = 1)
+    103                                              					- Saves WR address 						if(signal = 2'b00)
+    104                                              					- Writes data in pre-given address 		if(signal = 2'b01)
+    105                                              					- Saves RD address 						if(signal = 2'b10)
+    106                                              					- Reads data from pre-given address 	if(signal = 2'b11)
+    107                                              		*/
+    108             1                          1     		stimulus_gen1;
+    109                                              
+    110                                              
+    111                                              		//TEST 2: Complete Randomization
+    112             1                          1     		stimulus_gen2;
+    113                                              
+    114                                              
+    115                                              
+    116                                              		//Correct Count and Error Count Display
+    117             1                          1     		$display("At End of Simulation: Correct Count = %0d, Error Count = %0d", correct_count, error_count);
+    118             1                          1     		@(negedge clk); $stop;
+    118             2                          1     
+    119                                              
+    120                                              	end
+    121                                              
+    122                                              
+    123                                              
+    124                                              
+    125                                              
+    126                                              	//Tasks
+    127                                              
+    128                                              	//Assert Reset
+    129                                              	task assert_reset;
+    130             1                          1     		rst_n = 0;
+    131             1                          1     		ram_c.c.constraint_mode(0);
+    132                                              
+    133             1                          1     		@(negedge clk);
+    134                                              	endtask
+    135                                              
+    136                                              	//TEST 0: Reset Asserted
+    137                                              	task stimulus_gen_reset;
+    138             1                          1     		for(int i=0; i<TESTS; i++) begin
+    138             2                      10000     
+    139                                              			assert(ram_c.randomize());
+    140             1                      10000     			rx_valid 	= ram_c.rx_valid;
+    141             1                      10000     			din 		= {two_bit'(ram_c.signal), ram_c.data};
+    142                                              
+    143             1                      10000     			signal			= ram_c.signal;
+    144             1                      10000     			data 			= ram_c.data;
+    145                                              
+    146             1                      10000     			check_reset;
+    147                                              		end
+    148                                              	endtask
+    149                                              
+    150                                              	//CHECKER: Reset Asserted
+    151                                              	task check_reset;
+    152             1                      10476     		@(negedge clk);
+    153                                              
+    154                                              		if(dout !== 0) begin
+    155             1                    ***0***     			$display("ERROR: (Reset Asserted) -> Output -dout- equals %0h, but should equal 0 \t\t--time: %0t", dout, $time);
+    156             1                    ***0***     			error_count++;
+    157                                              		end
+    158             1                      10476     		else correct_count++;
+    159                                              
+    160                                              		if(tx_valid !== 0) begin
+    161             1                    ***0***     			$display("ERROR: (Reset Asserted) -> Output -tx_valid- equals %0h, but should equal 0 \t\t--time: %0t", tx_valid, $time);
+    162             1                    ***0***     			error_count++;
+    163                                              		end
+    164             1                      10476     		else correct_count++;
+    165                                              
+    166             1                      10476     		@(negedge clk);
+    167                                              	endtask
+    168                                              
+    169                                              	//Deassert Reset
+    170                                              	task deassert_reset;
+    171             1                          1     		rst_n = 1;
+    172             1                          1     		din[ADDR_SIZE+1 : ADDR_SIZE] = WRITE_DATA;		//Setting a starting point after reset is deasserted
+    173             1                          1     		ram_c.c.constraint_mode(1);
+    174                                              
+    175             1                          1     		@(negedge clk);
+    176                                              	endtask
+    177                                              
+    178                                              
+    179                                              
+    180                                              
+    181                                              
+    182                                              
+    183                                              	//RAM data initialization
+    184                                              	task ram_initial;
+    185             1                          1     		for(int i=0; i<TESTS; i++) begin
+    185             2                      10000     
+    186             1                      10000     			rx_valid = 1;
+    187                                              
+    188                                              			//Data randomized to only include write-related signals
+    189                                              			assert(ram_c.randomize() with {signal inside {STORE_WR_ADDR, WRITE_DATA};});
+    190             1                      10000     			rst_n = ram_c.rst_n;
+    191             1                      10000     			din 	= {two_bit'(ram_c.signal), ram_c.data};
+    192                                              
+    193             1                      10000     			signal		= ram_c.signal;
+    194             1                      10000     			data 		= ram_c.data;
+    195                                              
+    196                                              			//To access RAM_assoc
+    197             1                      10000     			golden_model;
+    198             1                      10000     			@(negedge clk);
+    199                                              		end
+    200                                              	endtask
+    201                                              
+    202                                              
+    203                                              
+    204                                              
+    205                                              	//TEST 1: Normal Operation
+    206                                              	task stimulus_gen1;
+    207             1                          1     		for(int i=0; i<TESTS; i++) begin
+    207             2                      10000     
+    208                                              			assert(ram_c.randomize());
+    209             1                      10000     			rst_n 	= ram_c.rst_n;
+    210             1                      10000     			rx_valid	= ram_c.rx_valid;
+    211             1                      10000     			din 		= {two_bit'(ram_c.signal), ram_c.data};
+    212                                              
+    213             1                      10000     			signal			= ram_c.signal;
+    214             1                      10000     			data 			= ram_c.data;
+    215                                              
+    216             1                      10000     			check_result;
+    217                                              		end
+    218                                              	endtask
+    219                                              
+    220                                              
+    221                                              	//TEST 2: Complete Randomization
+    222                                              	task stimulus_gen2;
+    223             1                          1     		ram_c.c.constraint_mode(0);
+    224                                              
+    225             1                          1     		rst_n = 1;
+    226             1                          1     		for(int i=0; i<TESTS; i++) begin
+    226             2                      10000     
+    227                                              			assert(ram_c.randomize());
+    228             1                      10000     			rx_valid	= ram_c.rx_valid;
+    229             1                      10000     			din 		= {two_bit'(ram_c.signal), ram_c.data};
+    230                                              
+    231             1                      10000     			signal			= ram_c.signal;
+    232             1                      10000     			data 			= ram_c.data;
+    233                                              
+    234             1                      10000     			check_result;
+    235                                              		end
+    236                                              	endtask
+    237                                              
+    238                                              
+    239                                              
+    240                                              
+    241                                              
+    242                                              
+    243                                              	//CHECKER: General
+    244                                              	task check_result;
+    245             1                      20000     		@(posedge clk);
+    246                                              
+    247             1                      20000     		golden_model;
+    248                                              
+    249             1                        476     		if(!rst_n) check_reset;
+    250                                              		else begin
+    251             1                      19524     			@(negedge clk);
+    252                                              
+    253                                              			if(dout !== dout_exp) begin
+    254             1                    ***0***     				$display("ERROR: Output -dout- equals %0h, but should equal %0h \t\t--time: %0t", dout, dout_exp, $time);
+    255             1                    ***0***     				error_count++;
+    256                                              			end
+    257             1                      19524     			else correct_count++;
+    258                                              
+    259                                              			if(tx_valid !== tx_valid_exp) begin
+    260             1                    ***0***     				$display("ERROR: Output -tx_valid- equals %0h, but should equal %0h \t\t--time: %0t", tx_valid, tx_valid_exp, $time);
+    261             1                    ***0***     				error_count++;
+    262                                              			end
+    263             1                      19524     			else correct_count++;
+    264                                              		end
+    265                                              
+    266                                              		//To prepare available addresses for read operations -> passed to class
+    267             1                      20000     		ram_c.WR_addr = WR_addr;
+    268                                              
+    269             1                      20000     		@(negedge clk);
+    270                                              	endtask
+    271                                              
+    272                                              	//Golden Model
+    273                                              	task golden_model;
+    274                                              		if(!rst_n) begin
+    275             1                        980     			tx_valid_exp = 0;
+    276             1                        980     			dout_exp = 0;
+    277             1                        980     			WR_addr = 0;
+    278             1                        980     			RD_addr = 0;
+    279                                              		end
+    280                                              		else begin
+    281                                              			if(rx_valid) begin
+    282                                              				case(signal)
+    283             1                       5540     				STORE_WR_ADDR:	WR_addr = data;
+    284                                              
+    285             1                       9818     				WRITE_DATA: 	RAM_assoc[WR_addr] = data;
+    286                                              
+    287             1                       2271     				STORE_RD_ADDR: 	RD_addr = data;
+    288                                              
+    289             1                       3528     				READ_DATA: 		dout_exp = RAM_assoc[RD_addr];
+    290                                              				endcase
+    291                                              
+    292             1                       3528     				if(signal == READ_DATA) tx_valid_exp = 1;
+    293             1                      17629     				else tx_valid_exp = 0;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        244       145        99    59.42%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /RAM_tb --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                      RD_addr[0-7]           1           1                              100.00 
+                                      WR_addr[0-7]           1           1                              100.00 
+                                               clk           1           1                              100.00 
+                                  correct_count[0]           0           0                                0.00 
+                               correct_count[1-14]           1           1                              100.00 
+                                 correct_count[15]           0           1                               50.00 
+                              correct_count[16-31]           0           0                                0.00 
+                                         data[0-7]           1           1                              100.00 
+                                          din[0-9]           1           1                              100.00 
+                                         dout[0-7]           1           1                              100.00 
+                                     dout_exp[0-7]           1           1                              100.00 
+                                 error_count[0-31]           0           0                                0.00 
+                                             rst_n           1           1                              100.00 
+                                          rx_valid           1           1                              100.00 
+                                          samp_clk           1           1                              100.00 
+                                            signal               ENUM type       Value       Count 
+                                                             STORE_WR_ADDR           8      100.00 
+                                                                WRITE_DATA           5      100.00 
+                                                             STORE_RD_ADDR           1      100.00 
+                                                                 READ_DATA           8      100.00 
+                                          tx_valid           1           1                              100.00 
+                                      tx_valid_exp           1           1                              100.00 
+
+Total Node Count     =        124 
+Toggled Node Count   =         74 
+Untoggled Node Count =         50 
+
+Toggle Coverage      =      59.42% (145 of 244 bins)
+
+=================================================================================
+=== Instance: /RAM_pkg
+=== Design Unit: work.RAM_pkg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         2         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /RAM_pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File RAM_pkg.sv
+------------------------------------IF Branch------------------------------------
+    51                                     40000     Count coming in to IF
+    51     1 (CP=( 8))                       8003     			if(rst_n && rx_valid && (signal == WRITE_DATA)) valid_addr_q.push_front(WR_addr);	//Whenever a successful WRITE OP is done in a specific address, that address is pushed to the valid_addr queue
+                                           31997     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       3         3         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /RAM_pkg --
+
+  File RAM_pkg.sv
+----------------Focused Condition View-------------------
+Line       51 Item    1 (CP=( 8)) (this.rst_n && this.rx_valid && (this.signal == WRITE_DATA))
+Condition totals: 3 of 3 input terms covered = 100.00%
+
+                   Input Term   Covered  Reason for no coverage   Hint
+                  -----------  --------  -----------------------  --------------
+                   this.rst_n         Y
+                this.rx_valid         Y
+  (this.signal == WRITE_DATA)         Y
+
+     Rows:       Hits  FEC Target                     Non-masking condition(s)      
+ ---------  ---------  --------------------           -------------------------     
+  Row   1:          1  this.rst_n_0                   -                             
+  Row   2:          1  this.rst_n_1                   (this.rx_valid && (this.signal == WRITE_DATA))
+  Row   3:          1  this.rx_valid_0                this.rst_n                    
+  Row   4:          1  this.rx_valid_1                (this.rst_n && (this.signal == WRITE_DATA))
+  Row   5:          1  (this.signal == WRITE_DATA)_0  (this.rst_n && this.rx_valid) 
+  Row   6:          1  (this.signal == WRITE_DATA)_1  (this.rst_n && this.rx_valid) 
+
+
+
+Covergroup Coverage:
+    Covergroups                      1        na        na   100.00%
+        Coverpoints/Crosses         11        na        na        na
+            Covergroup Bins        352       352         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /RAM_pkg/RAM_class/RAM_class__1/RAM_cg          100.00%        100          -    Covered              
+    covered/total bins:                                   352        352          -                      
+    missing/total bins:                                     0        352          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint signal_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint data_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint rx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint WR_addr_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                64         64          -                      
+        missing/total bins:                                 0         64          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint rst_n                                  100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_rst_addr                              100.00%        100          -    Covered              
+        covered/total bins:                               128        128          -                      
+        missing/total bins:                                 0        128          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_rx_addr                               100.00%        100          -    Covered              
+        covered/total bins:                               128        128          -                      
+        missing/total bins:                                 0        128          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_rst_signal                            100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_signal_data                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_signal_rx                             100.00%        100          -    Covered              
+        covered/total bins:                                 5          5          -                      
+        missing/total bins:                                 0          5          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_signal_addr                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+ Covergroup instance \/RAM_pkg::RAM_class::RAM_class__1::RAM_cg  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                   352        352          -                      
+    missing/total bins:                                     0        352          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint signal_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin WR_states                                   21085          1          -    Covered              
+        bin RD_states                                   14155          1          -    Covered              
+        bin WR_to_RD                                     1391          1          -    Covered              
+        bin RD_to_WR                                     1284          1          -    Covered              
+    Coverpoint data_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin ALL_ones                                     3188          1          -    Covered              
+        bin ZERO                                         4350          1          -    Covered              
+        bin Walking_ones                                 6768          1          -    Covered              
+    Coverpoint rx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                     14621          1          -    Covered              
+        bin auto[1]                                     20619          1          -    Covered              
+    Coverpoint WR_addr_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                64         64          -                      
+        missing/total bins:                                 0         64          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0:3]                                   20185          1          -    Covered              
+        bin auto[4:7]                                     453          1          -    Covered              
+        bin auto[8:11]                                    546          1          -    Covered              
+        bin auto[12:15]                                   159          1          -    Covered              
+        bin auto[16:19]                                   564          1          -    Covered              
+        bin auto[20:23]                                   237          1          -    Covered              
+        bin auto[24:27]                                   263          1          -    Covered              
+        bin auto[28:31]                                   209          1          -    Covered              
+        bin auto[32:35]                                   584          1          -    Covered              
+        bin auto[36:39]                                   281          1          -    Covered              
+        bin auto[40:43]                                   139          1          -    Covered              
+        bin auto[44:47]                                   123          1          -    Covered              
+        bin auto[48:51]                                   144          1          -    Covered              
+        bin auto[52:55]                                   237          1          -    Covered              
+        bin auto[56:59]                                   122          1          -    Covered              
+        bin auto[60:63]                                   250          1          -    Covered              
+        bin auto[64:67]                                   551          1          -    Covered              
+        bin auto[68:71]                                   100          1          -    Covered              
+        bin auto[72:75]                                   123          1          -    Covered              
+        bin auto[76:79]                                   128          1          -    Covered              
+        bin auto[80:83]                                   139          1          -    Covered              
+        bin auto[84:87]                                   215          1          -    Covered              
+        bin auto[88:91]                                    62          1          -    Covered              
+        bin auto[92:95]                                   115          1          -    Covered              
+        bin auto[96:99]                                   207          1          -    Covered              
+        bin auto[100:103]                                 139          1          -    Covered              
+        bin auto[104:107]                                 235          1          -    Covered              
+        bin auto[108:111]                                 158          1          -    Covered              
+        bin auto[112:115]                                 146          1          -    Covered              
+        bin auto[116:119]                                 159          1          -    Covered              
+        bin auto[120:123]                                 230          1          -    Covered              
+        bin auto[124:127]                                 142          1          -    Covered              
+        bin auto[128:131]                                 570          1          -    Covered              
+        bin auto[132:135]                                 162          1          -    Covered              
+        bin auto[136:139]                                 189          1          -    Covered              
+        bin auto[140:143]                                 241          1          -    Covered              
+        bin auto[144:147]                                 115          1          -    Covered              
+        bin auto[148:151]                                 254          1          -    Covered              
+        bin auto[152:155]                                 259          1          -    Covered              
+        bin auto[156:159]                                 235          1          -    Covered              
+        bin auto[160:163]                                 160          1          -    Covered              
+        bin auto[164:167]                                 232          1          -    Covered              
+        bin auto[168:171]                                 212          1          -    Covered              
+        bin auto[172:175]                                 185          1          -    Covered              
+        bin auto[176:179]                                 150          1          -    Covered              
+        bin auto[180:183]                                 217          1          -    Covered              
+        bin auto[184:187]                                 172          1          -    Covered              
+        bin auto[188:191]                                 273          1          -    Covered              
+        bin auto[192:195]                                 307          1          -    Covered              
+        bin auto[196:199]                                 153          1          -    Covered              
+        bin auto[200:203]                                 200          1          -    Covered              
+        bin auto[204:207]                                 151          1          -    Covered              
+        bin auto[208:211]                                 206          1          -    Covered              
+        bin auto[212:215]                                  95          1          -    Covered              
+        bin auto[216:219]                                 213          1          -    Covered              
+        bin auto[220:223]                                 201          1          -    Covered              
+        bin auto[224:227]                                 143          1          -    Covered              
+        bin auto[228:231]                                 178          1          -    Covered              
+        bin auto[232:235]                                 125          1          -    Covered              
+        bin auto[236:239]                                 151          1          -    Covered              
+        bin auto[240:243]                                 155          1          -    Covered              
+        bin auto[244:247]                                 144          1          -    Covered              
+        bin auto[248:251]                                 192          1          -    Covered              
+        bin auto[252:255]                                1655          1          -    Covered              
+    Coverpoint rst_n                                  100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                     11040          1          -    Covered              
+        bin auto[1]                                     24200          1          -    Covered              
+    Cross cross_rst_addr                              100.00%        100          -    Covered              
+        covered/total bins:                               128        128          -                      
+        missing/total bins:                                 0        128          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <auto[1],auto[252:255]>                  1518          1          -    Covered              
+            bin <auto[0],auto[252:255]>                   137          1          -    Covered              
+            bin <auto[1],auto[248:251]>                   114          1          -    Covered              
+            bin <auto[0],auto[248:251]>                    78          1          -    Covered              
+            bin <auto[1],auto[244:247]>                    89          1          -    Covered              
+            bin <auto[0],auto[244:247]>                    55          1          -    Covered              
+            bin <auto[1],auto[240:243]>                    79          1          -    Covered              
+            bin <auto[0],auto[240:243]>                    76          1          -    Covered              
+            bin <auto[1],auto[236:239]>                    83          1          -    Covered              
+            bin <auto[0],auto[236:239]>                    68          1          -    Covered              
+            bin <auto[1],auto[232:235]>                    56          1          -    Covered              
+            bin <auto[0],auto[232:235]>                    69          1          -    Covered              
+            bin <auto[1],auto[228:231]>                    99          1          -    Covered              
+            bin <auto[0],auto[228:231]>                    79          1          -    Covered              
+            bin <auto[1],auto[224:227]>                    72          1          -    Covered              
+            bin <auto[0],auto[224:227]>                    71          1          -    Covered              
+            bin <auto[1],auto[220:223]>                   119          1          -    Covered              
+            bin <auto[0],auto[220:223]>                    82          1          -    Covered              
+            bin <auto[1],auto[216:219]>                   121          1          -    Covered              
+            bin <auto[0],auto[216:219]>                    92          1          -    Covered              
+            bin <auto[1],auto[212:215]>                    58          1          -    Covered              
+            bin <auto[0],auto[212:215]>                    37          1          -    Covered              
+            bin <auto[1],auto[208:211]>                   118          1          -    Covered              
+            bin <auto[0],auto[208:211]>                    88          1          -    Covered              
+            bin <auto[1],auto[204:207]>                    76          1          -    Covered              
+            bin <auto[0],auto[204:207]>                    75          1          -    Covered              
+            bin <auto[1],auto[200:203]>                   109          1          -    Covered              
+            bin <auto[0],auto[200:203]>                    91          1          -    Covered              
+            bin <auto[1],auto[196:199]>                    81          1          -    Covered              
+            bin <auto[0],auto[196:199]>                    72          1          -    Covered              
+            bin <auto[1],auto[192:195]>                   153          1          -    Covered              
+            bin <auto[0],auto[192:195]>                   154          1          -    Covered              
+            bin <auto[1],auto[188:191]>                   136          1          -    Covered              
+            bin <auto[0],auto[188:191]>                   137          1          -    Covered              
+            bin <auto[1],auto[184:187]>                    90          1          -    Covered              
+            bin <auto[0],auto[184:187]>                    82          1          -    Covered              
+            bin <auto[1],auto[180:183]>                   122          1          -    Covered              
+            bin <auto[0],auto[180:183]>                    95          1          -    Covered              
+            bin <auto[1],auto[176:179]>                    93          1          -    Covered              
+            bin <auto[0],auto[176:179]>                    57          1          -    Covered              
+            bin <auto[1],auto[172:175]>                    99          1          -    Covered              
+            bin <auto[0],auto[172:175]>                    86          1          -    Covered              
+            bin <auto[1],auto[168:171]>                   125          1          -    Covered              
+            bin <auto[0],auto[168:171]>                    87          1          -    Covered              
+            bin <auto[1],auto[164:167]>                   123          1          -    Covered              
+            bin <auto[0],auto[164:167]>                   109          1          -    Covered              
+            bin <auto[1],auto[160:163]>                    94          1          -    Covered              
+            bin <auto[0],auto[160:163]>                    66          1          -    Covered              
+            bin <auto[1],auto[156:159]>                   131          1          -    Covered              
+            bin <auto[0],auto[156:159]>                   104          1          -    Covered              
+            bin <auto[1],auto[152:155]>                   147          1          -    Covered              
+            bin <auto[0],auto[152:155]>                   112          1          -    Covered              
+            bin <auto[1],auto[148:151]>                   143          1          -    Covered              
+            bin <auto[0],auto[148:151]>                   111          1          -    Covered              
+            bin <auto[1],auto[144:147]>                    75          1          -    Covered              
+            bin <auto[0],auto[144:147]>                    40          1          -    Covered              
+            bin <auto[1],auto[140:143]>                   133          1          -    Covered              
+            bin <auto[0],auto[140:143]>                   108          1          -    Covered              
+            bin <auto[1],auto[136:139]>                   110          1          -    Covered              
+            bin <auto[0],auto[136:139]>                    79          1          -    Covered              
+            bin <auto[1],auto[132:135]>                   102          1          -    Covered              
+            bin <auto[0],auto[132:135]>                    60          1          -    Covered              
+            bin <auto[1],auto[128:131]>                   485          1          -    Covered              
+            bin <auto[0],auto[128:131]>                    85          1          -    Covered              
+            bin <auto[1],auto[124:127]>                    82          1          -    Covered              
+            bin <auto[0],auto[124:127]>                    60          1          -    Covered              
+            bin <auto[1],auto[120:123]>                   149          1          -    Covered              
+            bin <auto[0],auto[120:123]>                    81          1          -    Covered              
+            bin <auto[1],auto[116:119]>                    96          1          -    Covered              
+            bin <auto[0],auto[116:119]>                    63          1          -    Covered              
+            bin <auto[1],auto[112:115]>                    72          1          -    Covered              
+            bin <auto[0],auto[112:115]>                    74          1          -    Covered              
+            bin <auto[1],auto[108:111]>                    78          1          -    Covered              
+            bin <auto[0],auto[108:111]>                    80          1          -    Covered              
+            bin <auto[1],auto[104:107]>                   120          1          -    Covered              
+            bin <auto[0],auto[104:107]>                   115          1          -    Covered              
+            bin <auto[1],auto[100:103]>                    77          1          -    Covered              
+            bin <auto[0],auto[100:103]>                    62          1          -    Covered              
+            bin <auto[1],auto[96:99]>                     126          1          -    Covered              
+            bin <auto[0],auto[96:99]>                      81          1          -    Covered              
+            bin <auto[1],auto[92:95]>                      59          1          -    Covered              
+            bin <auto[0],auto[92:95]>                      56          1          -    Covered              
+            bin <auto[1],auto[88:91]>                      36          1          -    Covered              
+            bin <auto[0],auto[88:91]>                      26          1          -    Covered              
+            bin <auto[1],auto[84:87]>                     128          1          -    Covered              
+            bin <auto[0],auto[84:87]>                      87          1          -    Covered              
+            bin <auto[1],auto[80:83]>                      87          1          -    Covered              
+            bin <auto[0],auto[80:83]>                      52          1          -    Covered              
+            bin <auto[1],auto[76:79]>                      66          1          -    Covered              
+            bin <auto[0],auto[76:79]>                      62          1          -    Covered              
+            bin <auto[1],auto[72:75]>                      65          1          -    Covered              
+            bin <auto[0],auto[72:75]>                      58          1          -    Covered              
+            bin <auto[1],auto[68:71]>                      55          1          -    Covered              
+            bin <auto[0],auto[68:71]>                      45          1          -    Covered              
+            bin <auto[1],auto[64:67]>                     420          1          -    Covered              
+            bin <auto[0],auto[64:67]>                     131          1          -    Covered              
+            bin <auto[1],auto[60:63]>                     137          1          -    Covered              
+            bin <auto[0],auto[60:63]>                     113          1          -    Covered              
+            bin <auto[1],auto[56:59]>                      76          1          -    Covered              
+            bin <auto[0],auto[56:59]>                      46          1          -    Covered              
+            bin <auto[1],auto[52:55]>                     134          1          -    Covered              
+            bin <auto[0],auto[52:55]>                     103          1          -    Covered              
+            bin <auto[1],auto[48:51]>                      83          1          -    Covered              
+            bin <auto[0],auto[48:51]>                      61          1          -    Covered              
+            bin <auto[1],auto[44:47]>                      76          1          -    Covered              
+            bin <auto[0],auto[44:47]>                      47          1          -    Covered              
+            bin <auto[1],auto[40:43]>                      67          1          -    Covered              
+            bin <auto[0],auto[40:43]>                      72          1          -    Covered              
+            bin <auto[1],auto[36:39]>                     156          1          -    Covered              
+            bin <auto[0],auto[36:39]>                     125          1          -    Covered              
+            bin <auto[1],auto[32:35]>                     507          1          -    Covered              
+            bin <auto[0],auto[32:35]>                      77          1          -    Covered              
+            bin <auto[1],auto[28:31]>                     114          1          -    Covered              
+            bin <auto[0],auto[28:31]>                      95          1          -    Covered              
+            bin <auto[1],auto[24:27]>                     156          1          -    Covered              
+            bin <auto[0],auto[24:27]>                     107          1          -    Covered              
+            bin <auto[1],auto[20:23]>                     133          1          -    Covered              
+            bin <auto[0],auto[20:23]>                     104          1          -    Covered              
+            bin <auto[1],auto[16:19]>                     464          1          -    Covered              
+            bin <auto[0],auto[16:19]>                     100          1          -    Covered              
+            bin <auto[1],auto[12:15]>                      88          1          -    Covered              
+            bin <auto[0],auto[12:15]>                      71          1          -    Covered              
+            bin <auto[1],auto[8:11]>                      429          1          -    Covered              
+            bin <auto[0],auto[8:11]>                      117          1          -    Covered              
+            bin <auto[1],auto[4:7]>                       389          1          -    Covered              
+            bin <auto[0],auto[4:7]>                        64          1          -    Covered              
+            bin <auto[1],auto[0:3]>                     14322          1          -    Covered              
+            bin <auto[0],auto[0:3]>                      5863          1          -    Covered              
+    Cross cross_rx_addr                               100.00%        100          -    Covered              
+        covered/total bins:                               128        128          -                      
+        missing/total bins:                                 0        128          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <auto[1],auto[252:255]>                  1158          1          -    Covered              
+            bin <auto[0],auto[252:255]>                   497          1          -    Covered              
+            bin <auto[1],auto[248:251]>                    96          1          -    Covered              
+            bin <auto[0],auto[248:251]>                    96          1          -    Covered              
+            bin <auto[1],auto[244:247]>                    77          1          -    Covered              
+            bin <auto[0],auto[244:247]>                    67          1          -    Covered              
+            bin <auto[1],auto[240:243]>                    77          1          -    Covered              
+            bin <auto[0],auto[240:243]>                    78          1          -    Covered              
+            bin <auto[1],auto[236:239]>                    82          1          -    Covered              
+            bin <auto[0],auto[236:239]>                    69          1          -    Covered              
+            bin <auto[1],auto[232:235]>                    58          1          -    Covered              
+            bin <auto[0],auto[232:235]>                    67          1          -    Covered              
+            bin <auto[1],auto[228:231]>                    92          1          -    Covered              
+            bin <auto[0],auto[228:231]>                    86          1          -    Covered              
+            bin <auto[1],auto[224:227]>                    79          1          -    Covered              
+            bin <auto[0],auto[224:227]>                    64          1          -    Covered              
+            bin <auto[1],auto[220:223]>                   123          1          -    Covered              
+            bin <auto[0],auto[220:223]>                    78          1          -    Covered              
+            bin <auto[1],auto[216:219]>                    99          1          -    Covered              
+            bin <auto[0],auto[216:219]>                   114          1          -    Covered              
+            bin <auto[1],auto[212:215]>                    60          1          -    Covered              
+            bin <auto[0],auto[212:215]>                    35          1          -    Covered              
+            bin <auto[1],auto[208:211]>                    99          1          -    Covered              
+            bin <auto[0],auto[208:211]>                   107          1          -    Covered              
+            bin <auto[1],auto[204:207]>                    77          1          -    Covered              
+            bin <auto[0],auto[204:207]>                    74          1          -    Covered              
+            bin <auto[1],auto[200:203]>                   115          1          -    Covered              
+            bin <auto[0],auto[200:203]>                    85          1          -    Covered              
+            bin <auto[1],auto[196:199]>                    79          1          -    Covered              
+            bin <auto[0],auto[196:199]>                    74          1          -    Covered              
+            bin <auto[1],auto[192:195]>                   164          1          -    Covered              
+            bin <auto[0],auto[192:195]>                   143          1          -    Covered              
+            bin <auto[1],auto[188:191]>                   140          1          -    Covered              
+            bin <auto[0],auto[188:191]>                   133          1          -    Covered              
+            bin <auto[1],auto[184:187]>                    95          1          -    Covered              
+            bin <auto[0],auto[184:187]>                    77          1          -    Covered              
+            bin <auto[1],auto[180:183]>                   118          1          -    Covered              
+            bin <auto[0],auto[180:183]>                    99          1          -    Covered              
+            bin <auto[1],auto[176:179]>                    88          1          -    Covered              
+            bin <auto[0],auto[176:179]>                    62          1          -    Covered              
+            bin <auto[1],auto[172:175]>                    96          1          -    Covered              
+            bin <auto[0],auto[172:175]>                    89          1          -    Covered              
+            bin <auto[1],auto[168:171]>                   115          1          -    Covered              
+            bin <auto[0],auto[168:171]>                    97          1          -    Covered              
+            bin <auto[1],auto[164:167]>                   110          1          -    Covered              
+            bin <auto[0],auto[164:167]>                   122          1          -    Covered              
+            bin <auto[1],auto[160:163]>                    88          1          -    Covered              
+            bin <auto[0],auto[160:163]>                    72          1          -    Covered              
+            bin <auto[1],auto[156:159]>                   129          1          -    Covered              
+            bin <auto[0],auto[156:159]>                   106          1          -    Covered              
+            bin <auto[1],auto[152:155]>                   132          1          -    Covered              
+            bin <auto[0],auto[152:155]>                   127          1          -    Covered              
+            bin <auto[1],auto[148:151]>                   115          1          -    Covered              
+            bin <auto[0],auto[148:151]>                   139          1          -    Covered              
+            bin <auto[1],auto[144:147]>                    67          1          -    Covered              
+            bin <auto[0],auto[144:147]>                    48          1          -    Covered              
+            bin <auto[1],auto[140:143]>                   127          1          -    Covered              
+            bin <auto[0],auto[140:143]>                   114          1          -    Covered              
+            bin <auto[1],auto[136:139]>                    99          1          -    Covered              
+            bin <auto[0],auto[136:139]>                    90          1          -    Covered              
+            bin <auto[1],auto[132:135]>                    77          1          -    Covered              
+            bin <auto[0],auto[132:135]>                    85          1          -    Covered              
+            bin <auto[1],auto[128:131]>                   366          1          -    Covered              
+            bin <auto[0],auto[128:131]>                   204          1          -    Covered              
+            bin <auto[1],auto[124:127]>                    78          1          -    Covered              
+            bin <auto[0],auto[124:127]>                    64          1          -    Covered              
+            bin <auto[1],auto[120:123]>                   127          1          -    Covered              
+            bin <auto[0],auto[120:123]>                   103          1          -    Covered              
+            bin <auto[1],auto[116:119]>                    88          1          -    Covered              
+            bin <auto[0],auto[116:119]>                    71          1          -    Covered              
+            bin <auto[1],auto[112:115]>                    63          1          -    Covered              
+            bin <auto[0],auto[112:115]>                    83          1          -    Covered              
+            bin <auto[1],auto[108:111]>                    77          1          -    Covered              
+            bin <auto[0],auto[108:111]>                    81          1          -    Covered              
+            bin <auto[1],auto[104:107]>                   125          1          -    Covered              
+            bin <auto[0],auto[104:107]>                   110          1          -    Covered              
+            bin <auto[1],auto[100:103]>                    77          1          -    Covered              
+            bin <auto[0],auto[100:103]>                    62          1          -    Covered              
+            bin <auto[1],auto[96:99]>                     112          1          -    Covered              
+            bin <auto[0],auto[96:99]>                      95          1          -    Covered              
+            bin <auto[1],auto[92:95]>                      65          1          -    Covered              
+            bin <auto[0],auto[92:95]>                      50          1          -    Covered              
+            bin <auto[1],auto[88:91]>                      35          1          -    Covered              
+            bin <auto[0],auto[88:91]>                      27          1          -    Covered              
+            bin <auto[1],auto[84:87]>                     127          1          -    Covered              
+            bin <auto[0],auto[84:87]>                      88          1          -    Covered              
+            bin <auto[1],auto[80:83]>                      68          1          -    Covered              
+            bin <auto[0],auto[80:83]>                      71          1          -    Covered              
+            bin <auto[1],auto[76:79]>                      60          1          -    Covered              
+            bin <auto[0],auto[76:79]>                      68          1          -    Covered              
+            bin <auto[1],auto[72:75]>                      72          1          -    Covered              
+            bin <auto[0],auto[72:75]>                      51          1          -    Covered              
+            bin <auto[1],auto[68:71]>                      53          1          -    Covered              
+            bin <auto[0],auto[68:71]>                      47          1          -    Covered              
+            bin <auto[1],auto[64:67]>                     345          1          -    Covered              
+            bin <auto[0],auto[64:67]>                     206          1          -    Covered              
+            bin <auto[1],auto[60:63]>                     117          1          -    Covered              
+            bin <auto[0],auto[60:63]>                     133          1          -    Covered              
+            bin <auto[1],auto[56:59]>                      59          1          -    Covered              
+            bin <auto[0],auto[56:59]>                      63          1          -    Covered              
+            bin <auto[1],auto[52:55]>                     129          1          -    Covered              
+            bin <auto[0],auto[52:55]>                     108          1          -    Covered              
+            bin <auto[1],auto[48:51]>                      76          1          -    Covered              
+            bin <auto[0],auto[48:51]>                      68          1          -    Covered              
+            bin <auto[1],auto[44:47]>                      59          1          -    Covered              
+            bin <auto[0],auto[44:47]>                      64          1          -    Covered              
+            bin <auto[1],auto[40:43]>                      71          1          -    Covered              
+            bin <auto[0],auto[40:43]>                      68          1          -    Covered              
+            bin <auto[1],auto[36:39]>                     149          1          -    Covered              
+            bin <auto[0],auto[36:39]>                     132          1          -    Covered              
+            bin <auto[1],auto[32:35]>                     386          1          -    Covered              
+            bin <auto[0],auto[32:35]>                     198          1          -    Covered              
+            bin <auto[1],auto[28:31]>                     113          1          -    Covered              
+            bin <auto[0],auto[28:31]>                      96          1          -    Covered              
+            bin <auto[1],auto[24:27]>                     133          1          -    Covered              
+            bin <auto[0],auto[24:27]>                     130          1          -    Covered              
+            bin <auto[1],auto[20:23]>                     127          1          -    Covered              
+            bin <auto[0],auto[20:23]>                     110          1          -    Covered              
+            bin <auto[1],auto[16:19]>                     349          1          -    Covered              
+            bin <auto[0],auto[16:19]>                     215          1          -    Covered              
+            bin <auto[1],auto[12:15]>                      84          1          -    Covered              
+            bin <auto[0],auto[12:15]>                      75          1          -    Covered              
+            bin <auto[1],auto[8:11]>                      361          1          -    Covered              
+            bin <auto[0],auto[8:11]>                      185          1          -    Covered              
+            bin <auto[1],auto[4:7]>                       315          1          -    Covered              
+            bin <auto[0],auto[4:7]>                       138          1          -    Covered              
+            bin <auto[1],auto[0:3]>                     12022          1          -    Covered              
+            bin <auto[0],auto[0:3]>                      8163          1          -    Covered              
+    Cross cross_rst_signal                            100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <auto[1],RD_to_WR>                       1027          1          -    Covered              
+            bin <auto[0],RD_to_WR>                        257          1          -    Covered              
+            bin <auto[1],WR_to_RD>                       1023          1          -    Covered              
+            bin <auto[0],WR_to_RD>                        368          1          -    Covered              
+            bin <auto[1],RD_states>                      9205          1          -    Covered              
+            bin <auto[0],RD_states>                      4950          1          -    Covered              
+            bin <auto[1],WR_states>                     14995          1          -    Covered              
+            bin <auto[0],WR_states>                      6090          1          -    Covered              
+    Cross cross_signal_data                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin WR_data                                  8524          1          -    Covered              
+            bin RD_data                                  5782          1          -    Covered              
+            bin data_WR_trans                             770          1          -    Covered              
+            bin data_RW_trans                             639          1          -    Covered              
+    Cross cross_signal_rx                             100.00%        100          -    Covered              
+        covered/total bins:                                 5          5          -                      
+        missing/total bins:                                 0          5          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin WR_valid                                12500          1          -    Covered              
+            bin RD_valid                                 8119          1          -    Covered              
+            bin WR_to_RD_valid                            863          1          -    Covered              
+            bin RD_to_WR_valid                            804          1          -    Covered              
+            bin states_IDLE                             14621          1          -    Covered              
+    Cross cross_signal_addr                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin WR_OP                                   21085          1          -    Covered              
+            bin RD_OP                                   14155          1          -    Covered              
+            bin WR_to_RD_addr                            1391          1          -    Covered              
+            bin RD_to_WR_addr                            1284          1          -    Covered              
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       8         8         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /RAM_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File RAM_pkg.sv
+    1                                                package RAM_pkg;
+    2                                                
+    3                                                	typedef enum logic [1:0] {STORE_WR_ADDR, WRITE_DATA, STORE_RD_ADDR, READ_DATA} signal_e;
+    4                                                	typedef bit [1:0] two_bit;
+    5                                                	
+    6                                                	class RAM_class #(int ADDR_SIZE = 8);
+    7                                                
+    8                                                		bit clk;
+    9                                                		rand bit rst_n, rx_valid;
+    10                                               		rand logic [ADDR_SIZE-1:0] data;
+    11                                               		rand signal_e signal;
+    12                                               
+    13                                               		//For post randomization
+    14                                               		logic [ADDR_SIZE-1:0] data_old;
+    15                                               		signal_e signal_old;
+    16                                               
+    17                                               		//For specifying valid addresses (that have been written previously)
+    18                                               		logic [ADDR_SIZE-1:0] valid_addr_q[$];
+    19                                               		bit [ADDR_SIZE-1:0] WR_addr;
+    20                                               
+    21                                               
+    22                                               		//Parameters for data Constraints
+    23                                               		parameter ONES = (2**ADDR_SIZE) - 1;
+    24                                               		parameter ZERO = 0;
+    25                                               
+    26                                               		rand bit [1:0] selector_data;
+    27                                               
+    28                                               		constraint c {
+    29                                               			rst_n 			dist {0:=5, 	1:=95};							//rst_n is inactive most of the time
+    30                                               			rx_valid 		dist {0:=30, 	1:=70};							//rx_valid is active most of the time
+    31                                               
+    32                                               			(signal_old == STORE_WR_ADDR) -> signal == WRITE_DATA;		//Whenever a "SAVE WR ADDRESS" signal is sent, it's followed by a "WRITE DATA" signal
+    33                                               
+    34                                               			(signal_old == STORE_RD_ADDR) -> signal == READ_DATA;		//Whenever a "SAVE RD ADDRESS" signal is sent, it's followed by a "READ DATA" signal
+    35                                               
+    36                                               			selector_data  	dist {[0:1]:/40, 2:=40, 3:=20};				//Data is at its corner cases most of the time
+    37                                               
+    38                                               			if(selector_data == 0) 			data == {ONES};
+    39                                               			else if(selector_data == 1) 	data == {ZERO};
+    40                                               			else if(selector_data == 2)		$countones(data) == 1;
+    41                                               		}
+    42                                               
+    43                                               		constraint valid_addr {
+    44                                               			(signal == STORE_RD_ADDR) -> data inside {valid_addr_q};	//"SAVE RD ADDRESS" has to be followed by an address that is readable
+    45                                               		}
+    46                                               
+    47                                               		function void post_randomize;
+    48     1 (CP=( 8))                      40000     			data_old 	= data;
+    49     1 (CP=( 8))                      40000     			signal_old 	= signal;
+    50                                               
+    51     1 (CP=( 8))                       8003     			if(rst_n && rx_valid && (signal == WRITE_DATA)) valid_addr_q.push_front(WR_addr);	//Whenever a successful WRITE OP is done in a specific address, that address is pushed to the valid_addr queue
+    52                                               		endfunction
+    53                                               
+    54                                               		covergroup RAM_cg;
+    55                                               			signal_cp:		coverpoint signal{
+    56                                               				bins WR_states 	= {STORE_WR_ADDR, WRITE_DATA};
+    57                                               				bins RD_states 	= {STORE_RD_ADDR, READ_DATA};
+    58                                               				bins WR_to_RD	= (STORE_WR_ADDR => WRITE_DATA => STORE_RD_ADDR, READ_DATA);	//Normal Operation: Read after Write
+    59                                               				bins RD_to_WR	= (STORE_RD_ADDR => READ_DATA => STORE_WR_ADDR, WRITE_DATA);	//Proposed Scenario: Write after Read
+    60                                               			}
+    61                                               
+    62                                               			data_cp: 		coverpoint data{					//Ensuring access to all bits of data and memory
+    63                                               				bins ALL_ones 		= {ONES};
+    64                                               				bins ZERO 			= {0};
+    65                                               				bins Walking_ones 	= {2**(ADDR_SIZE-1), 2**(ADDR_SIZE-2), 2**(ADDR_SIZE-3), 2**(ADDR_SIZE-4), 2**(ADDR_SIZE-5), 2**(ADDR_SIZE-6), 2**(ADDR_SIZE-7), 2**(ADDR_SIZE-8)};
+    66                                               			}
+    67                                               			rx_valid_cp: 	coverpoint rx_valid;
+    68                                               			WR_addr_cp: 	coverpoint WR_addr;													//All RAM addresses have been covered 
+    69                                               
+    70                                               			cross_rst_addr: 		cross rst_n, WR_addr_cp; 									//All RAM addresses heve experienced the effect of rst_n
+    71                                               			cross_rx_addr: 			cross rx_valid_cp, WR_addr_cp; 								//All RAM addresses heve experienced the effect of rx_valid
+    72                                               
+    73                                               			cross_rst_signal: 		cross rst_n, signal_cp; 									//All States and Transitions heve experienced the effect of rst_n
+    74                                               
+    75                                               			cross_signal_data: 		cross signal_cp, data_cp{
+    76                                               				bins WR_data 		= binsof(signal_cp.WR_states) && binsof(data_cp);			//All corners of data came along Write States
+    77                                               				bins RD_data 		= binsof(signal_cp.RD_states) && binsof(data_cp);			//All corners of data came along Read States
+    78                                               				bins data_WR_trans	= binsof(signal_cp.WR_to_RD) && binsof(data_cp);			//All corners of data came along the transition from Write States to Read States
+    79                                               				bins data_RW_trans	= binsof(signal_cp.RD_to_WR) && binsof(data_cp);			//All corners of data came along the transition from Read States to Write States
+    80                                               			}
+    81                                               
+    82                                               			cross_signal_rx: 		cross signal_cp, rx_valid_cp{
+    83                                               				bins WR_valid 		= binsof(signal_cp.WR_states) && binsof(rx_valid_cp) intersect {1};		//WR states are entered at active rx_valid
+    84                                               				bins RD_valid 		= binsof(signal_cp.RD_states) && binsof(rx_valid_cp) intersect {1};		//RD states are entered at active rx_valid
+    85                                               				bins WR_to_RD_valid = binsof(signal_cp.WR_to_RD) && binsof(rx_valid_cp) intersect {1};		//Transition from WR to RD states is done at active rx_valid
+    86                                               				bins RD_to_WR_valid = binsof(signal_cp.RD_to_WR) && binsof(rx_valid_cp) intersect {1};		//Transition from RD to WR states is done at active rx_valid
+    87                                               				bins states_IDLE	= binsof(signal_cp) && binsof(rx_valid_cp) intersect {0};				//All states and transitions passed IDLE state (inactive rx_valid)
+    88                                               			}
+    89                                               
+    90                                               			cross_signal_addr: 		cross signal_cp, WR_addr_cp{
+    91                                               				bins WR_OP	 		= binsof(signal_cp.WR_states) && binsof(WR_addr_cp);		//The same addresses passed accross both Write States
+    92                                               				bins RD_OP 			= binsof(signal_cp.RD_states) && binsof(WR_addr_cp);		//The same addresses passed accross both Read States
+    93                                               				bins WR_to_RD_addr  = binsof(signal_cp.WR_to_RD) && binsof(WR_addr_cp);			//The same addresses passed accross WR to RD Transition
+    94                                               				bins RD_to_WR_addr  = binsof(signal_cp.RD_to_WR) && binsof(WR_addr_cp);			//The same addresses passed accross WR to RD Transition
+    95                                               			}
+    96                                               		endgroup
+    97                                               
+    98                                               		function new(bit reset = 0, valid = 0, logic [ADDR_SIZE-1:0] content = 0, signal_e sig = STORE_WR_ADDR);
+    99     1 (CP=( 8))                          1     			this.rst_n 		= reset;
+    100    1 (CP=( 8))                          1     			this.rx_valid	= valid;
+    101    1 (CP=( 8))                          1     			this.data 		= content;
+    102    1 (CP=( 8))                          1     			this.signal 	= sig;
+    103                                              
+    104    1 (CP=( 8))                          1     			RAM_cg = new();
+
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /RAM_pkg/RAM_class/RAM_class__1/RAM_cg          100.00%        100          -    Covered              
+    covered/total bins:                                   352        352          -                      
+    missing/total bins:                                     0        352          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint signal_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint data_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint rx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint WR_addr_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                64         64          -                      
+        missing/total bins:                                 0         64          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint rst_n                                  100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_rst_addr                              100.00%        100          -    Covered              
+        covered/total bins:                               128        128          -                      
+        missing/total bins:                                 0        128          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_rx_addr                               100.00%        100          -    Covered              
+        covered/total bins:                               128        128          -                      
+        missing/total bins:                                 0        128          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_rst_signal                            100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_signal_data                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_signal_rx                             100.00%        100          -    Covered              
+        covered/total bins:                                 5          5          -                      
+        missing/total bins:                                 0          5          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross cross_signal_addr                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+ Covergroup instance \/RAM_pkg::RAM_class::RAM_class__1::RAM_cg  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                   352        352          -                      
+    missing/total bins:                                     0        352          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint signal_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin WR_states                                   21085          1          -    Covered              
+        bin RD_states                                   14155          1          -    Covered              
+        bin WR_to_RD                                     1391          1          -    Covered              
+        bin RD_to_WR                                     1284          1          -    Covered              
+    Coverpoint data_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin ALL_ones                                     3188          1          -    Covered              
+        bin ZERO                                         4350          1          -    Covered              
+        bin Walking_ones                                 6768          1          -    Covered              
+    Coverpoint rx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                     14621          1          -    Covered              
+        bin auto[1]                                     20619          1          -    Covered              
+    Coverpoint WR_addr_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                64         64          -                      
+        missing/total bins:                                 0         64          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0:3]                                   20185          1          -    Covered              
+        bin auto[4:7]                                     453          1          -    Covered              
+        bin auto[8:11]                                    546          1          -    Covered              
+        bin auto[12:15]                                   159          1          -    Covered              
+        bin auto[16:19]                                   564          1          -    Covered              
+        bin auto[20:23]                                   237          1          -    Covered              
+        bin auto[24:27]                                   263          1          -    Covered              
+        bin auto[28:31]                                   209          1          -    Covered              
+        bin auto[32:35]                                   584          1          -    Covered              
+        bin auto[36:39]                                   281          1          -    Covered              
+        bin auto[40:43]                                   139          1          -    Covered              
+        bin auto[44:47]                                   123          1          -    Covered              
+        bin auto[48:51]                                   144          1          -    Covered              
+        bin auto[52:55]                                   237          1          -    Covered              
+        bin auto[56:59]                                   122          1          -    Covered              
+        bin auto[60:63]                                   250          1          -    Covered              
+        bin auto[64:67]                                   551          1          -    Covered              
+        bin auto[68:71]                                   100          1          -    Covered              
+        bin auto[72:75]                                   123          1          -    Covered              
+        bin auto[76:79]                                   128          1          -    Covered              
+        bin auto[80:83]                                   139          1          -    Covered              
+        bin auto[84:87]                                   215          1          -    Covered              
+        bin auto[88:91]                                    62          1          -    Covered              
+        bin auto[92:95]                                   115          1          -    Covered              
+        bin auto[96:99]                                   207          1          -    Covered              
+        bin auto[100:103]                                 139          1          -    Covered              
+        bin auto[104:107]                                 235          1          -    Covered              
+        bin auto[108:111]                                 158          1          -    Covered              
+        bin auto[112:115]                                 146          1          -    Covered              
+        bin auto[116:119]                                 159          1          -    Covered              
+        bin auto[120:123]                                 230          1          -    Covered              
+        bin auto[124:127]                                 142          1          -    Covered              
+        bin auto[128:131]                                 570          1          -    Covered              
+        bin auto[132:135]                                 162          1          -    Covered              
+        bin auto[136:139]                                 189          1          -    Covered              
+        bin auto[140:143]                                 241          1          -    Covered              
+        bin auto[144:147]                                 115          1          -    Covered              
+        bin auto[148:151]                                 254          1          -    Covered              
+        bin auto[152:155]                                 259          1          -    Covered              
+        bin auto[156:159]                                 235          1          -    Covered              
+        bin auto[160:163]                                 160          1          -    Covered              
+        bin auto[164:167]                                 232          1          -    Covered              
+        bin auto[168:171]                                 212          1          -    Covered              
+        bin auto[172:175]                                 185          1          -    Covered              
+        bin auto[176:179]                                 150          1          -    Covered              
+        bin auto[180:183]                                 217          1          -    Covered              
+        bin auto[184:187]                                 172          1          -    Covered              
+        bin auto[188:191]                                 273          1          -    Covered              
+        bin auto[192:195]                                 307          1          -    Covered              
+        bin auto[196:199]                                 153          1          -    Covered              
+        bin auto[200:203]                                 200          1          -    Covered              
+        bin auto[204:207]                                 151          1          -    Covered              
+        bin auto[208:211]                                 206          1          -    Covered              
+        bin auto[212:215]                                  95          1          -    Covered              
+        bin auto[216:219]                                 213          1          -    Covered              
+        bin auto[220:223]                                 201          1          -    Covered              
+        bin auto[224:227]                                 143          1          -    Covered              
+        bin auto[228:231]                                 178          1          -    Covered              
+        bin auto[232:235]                                 125          1          -    Covered              
+        bin auto[236:239]                                 151          1          -    Covered              
+        bin auto[240:243]                                 155          1          -    Covered              
+        bin auto[244:247]                                 144          1          -    Covered              
+        bin auto[248:251]                                 192          1          -    Covered              
+        bin auto[252:255]                                1655          1          -    Covered              
+    Coverpoint rst_n                                  100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                     11040          1          -    Covered              
+        bin auto[1]                                     24200          1          -    Covered              
+    Cross cross_rst_addr                              100.00%        100          -    Covered              
+        covered/total bins:                               128        128          -                      
+        missing/total bins:                                 0        128          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <auto[1],auto[252:255]>                  1518          1          -    Covered              
+            bin <auto[0],auto[252:255]>                   137          1          -    Covered              
+            bin <auto[1],auto[248:251]>                   114          1          -    Covered              
+            bin <auto[0],auto[248:251]>                    78          1          -    Covered              
+            bin <auto[1],auto[244:247]>                    89          1          -    Covered              
+            bin <auto[0],auto[244:247]>                    55          1          -    Covered              
+            bin <auto[1],auto[240:243]>                    79          1          -    Covered              
+            bin <auto[0],auto[240:243]>                    76          1          -    Covered              
+            bin <auto[1],auto[236:239]>                    83          1          -    Covered              
+            bin <auto[0],auto[236:239]>                    68          1          -    Covered              
+            bin <auto[1],auto[232:235]>                    56          1          -    Covered              
+            bin <auto[0],auto[232:235]>                    69          1          -    Covered              
+            bin <auto[1],auto[228:231]>                    99          1          -    Covered              
+            bin <auto[0],auto[228:231]>                    79          1          -    Covered              
+            bin <auto[1],auto[224:227]>                    72          1          -    Covered              
+            bin <auto[0],auto[224:227]>                    71          1          -    Covered              
+            bin <auto[1],auto[220:223]>                   119          1          -    Covered              
+            bin <auto[0],auto[220:223]>                    82          1          -    Covered              
+            bin <auto[1],auto[216:219]>                   121          1          -    Covered              
+            bin <auto[0],auto[216:219]>                    92          1          -    Covered              
+            bin <auto[1],auto[212:215]>                    58          1          -    Covered              
+            bin <auto[0],auto[212:215]>                    37          1          -    Covered              
+            bin <auto[1],auto[208:211]>                   118          1          -    Covered              
+            bin <auto[0],auto[208:211]>                    88          1          -    Covered              
+            bin <auto[1],auto[204:207]>                    76          1          -    Covered              
+            bin <auto[0],auto[204:207]>                    75          1          -    Covered              
+            bin <auto[1],auto[200:203]>                   109          1          -    Covered              
+            bin <auto[0],auto[200:203]>                    91          1          -    Covered              
+            bin <auto[1],auto[196:199]>                    81          1          -    Covered              
+            bin <auto[0],auto[196:199]>                    72          1          -    Covered              
+            bin <auto[1],auto[192:195]>                   153          1          -    Covered              
+            bin <auto[0],auto[192:195]>                   154          1          -    Covered              
+            bin <auto[1],auto[188:191]>                   136          1          -    Covered              
+            bin <auto[0],auto[188:191]>                   137          1          -    Covered              
+            bin <auto[1],auto[184:187]>                    90          1          -    Covered              
+            bin <auto[0],auto[184:187]>                    82          1          -    Covered              
+            bin <auto[1],auto[180:183]>                   122          1          -    Covered              
+            bin <auto[0],auto[180:183]>                    95          1          -    Covered              
+            bin <auto[1],auto[176:179]>                    93          1          -    Covered              
+            bin <auto[0],auto[176:179]>                    57          1          -    Covered              
+            bin <auto[1],auto[172:175]>                    99          1          -    Covered              
+            bin <auto[0],auto[172:175]>                    86          1          -    Covered              
+            bin <auto[1],auto[168:171]>                   125          1          -    Covered              
+            bin <auto[0],auto[168:171]>                    87          1          -    Covered              
+            bin <auto[1],auto[164:167]>                   123          1          -    Covered              
+            bin <auto[0],auto[164:167]>                   109          1          -    Covered              
+            bin <auto[1],auto[160:163]>                    94          1          -    Covered              
+            bin <auto[0],auto[160:163]>                    66          1          -    Covered              
+            bin <auto[1],auto[156:159]>                   131          1          -    Covered              
+            bin <auto[0],auto[156:159]>                   104          1          -    Covered              
+            bin <auto[1],auto[152:155]>                   147          1          -    Covered              
+            bin <auto[0],auto[152:155]>                   112          1          -    Covered              
+            bin <auto[1],auto[148:151]>                   143          1          -    Covered              
+            bin <auto[0],auto[148:151]>                   111          1          -    Covered              
+            bin <auto[1],auto[144:147]>                    75          1          -    Covered              
+            bin <auto[0],auto[144:147]>                    40          1          -    Covered              
+            bin <auto[1],auto[140:143]>                   133          1          -    Covered              
+            bin <auto[0],auto[140:143]>                   108          1          -    Covered              
+            bin <auto[1],auto[136:139]>                   110          1          -    Covered              
+            bin <auto[0],auto[136:139]>                    79          1          -    Covered              
+            bin <auto[1],auto[132:135]>                   102          1          -    Covered              
+            bin <auto[0],auto[132:135]>                    60          1          -    Covered              
+            bin <auto[1],auto[128:131]>                   485          1          -    Covered              
+            bin <auto[0],auto[128:131]>                    85          1          -    Covered              
+            bin <auto[1],auto[124:127]>                    82          1          -    Covered              
+            bin <auto[0],auto[124:127]>                    60          1          -    Covered              
+            bin <auto[1],auto[120:123]>                   149          1          -    Covered              
+            bin <auto[0],auto[120:123]>                    81          1          -    Covered              
+            bin <auto[1],auto[116:119]>                    96          1          -    Covered              
+            bin <auto[0],auto[116:119]>                    63          1          -    Covered              
+            bin <auto[1],auto[112:115]>                    72          1          -    Covered              
+            bin <auto[0],auto[112:115]>                    74          1          -    Covered              
+            bin <auto[1],auto[108:111]>                    78          1          -    Covered              
+            bin <auto[0],auto[108:111]>                    80          1          -    Covered              
+            bin <auto[1],auto[104:107]>                   120          1          -    Covered              
+            bin <auto[0],auto[104:107]>                   115          1          -    Covered              
+            bin <auto[1],auto[100:103]>                    77          1          -    Covered              
+            bin <auto[0],auto[100:103]>                    62          1          -    Covered              
+            bin <auto[1],auto[96:99]>                     126          1          -    Covered              
+            bin <auto[0],auto[96:99]>                      81          1          -    Covered              
+            bin <auto[1],auto[92:95]>                      59          1          -    Covered              
+            bin <auto[0],auto[92:95]>                      56          1          -    Covered              
+            bin <auto[1],auto[88:91]>                      36          1          -    Covered              
+            bin <auto[0],auto[88:91]>                      26          1          -    Covered              
+            bin <auto[1],auto[84:87]>                     128          1          -    Covered              
+            bin <auto[0],auto[84:87]>                      87          1          -    Covered              
+            bin <auto[1],auto[80:83]>                      87          1          -    Covered              
+            bin <auto[0],auto[80:83]>                      52          1          -    Covered              
+            bin <auto[1],auto[76:79]>                      66          1          -    Covered              
+            bin <auto[0],auto[76:79]>                      62          1          -    Covered              
+            bin <auto[1],auto[72:75]>                      65          1          -    Covered              
+            bin <auto[0],auto[72:75]>                      58          1          -    Covered              
+            bin <auto[1],auto[68:71]>                      55          1          -    Covered              
+            bin <auto[0],auto[68:71]>                      45          1          -    Covered              
+            bin <auto[1],auto[64:67]>                     420          1          -    Covered              
+            bin <auto[0],auto[64:67]>                     131          1          -    Covered              
+            bin <auto[1],auto[60:63]>                     137          1          -    Covered              
+            bin <auto[0],auto[60:63]>                     113          1          -    Covered              
+            bin <auto[1],auto[56:59]>                      76          1          -    Covered              
+            bin <auto[0],auto[56:59]>                      46          1          -    Covered              
+            bin <auto[1],auto[52:55]>                     134          1          -    Covered              
+            bin <auto[0],auto[52:55]>                     103          1          -    Covered              
+            bin <auto[1],auto[48:51]>                      83          1          -    Covered              
+            bin <auto[0],auto[48:51]>                      61          1          -    Covered              
+            bin <auto[1],auto[44:47]>                      76          1          -    Covered              
+            bin <auto[0],auto[44:47]>                      47          1          -    Covered              
+            bin <auto[1],auto[40:43]>                      67          1          -    Covered              
+            bin <auto[0],auto[40:43]>                      72          1          -    Covered              
+            bin <auto[1],auto[36:39]>                     156          1          -    Covered              
+            bin <auto[0],auto[36:39]>                     125          1          -    Covered              
+            bin <auto[1],auto[32:35]>                     507          1          -    Covered              
+            bin <auto[0],auto[32:35]>                      77          1          -    Covered              
+            bin <auto[1],auto[28:31]>                     114          1          -    Covered              
+            bin <auto[0],auto[28:31]>                      95          1          -    Covered              
+            bin <auto[1],auto[24:27]>                     156          1          -    Covered              
+            bin <auto[0],auto[24:27]>                     107          1          -    Covered              
+            bin <auto[1],auto[20:23]>                     133          1          -    Covered              
+            bin <auto[0],auto[20:23]>                     104          1          -    Covered              
+            bin <auto[1],auto[16:19]>                     464          1          -    Covered              
+            bin <auto[0],auto[16:19]>                     100          1          -    Covered              
+            bin <auto[1],auto[12:15]>                      88          1          -    Covered              
+            bin <auto[0],auto[12:15]>                      71          1          -    Covered              
+            bin <auto[1],auto[8:11]>                      429          1          -    Covered              
+            bin <auto[0],auto[8:11]>                      117          1          -    Covered              
+            bin <auto[1],auto[4:7]>                       389          1          -    Covered              
+            bin <auto[0],auto[4:7]>                        64          1          -    Covered              
+            bin <auto[1],auto[0:3]>                     14322          1          -    Covered              
+            bin <auto[0],auto[0:3]>                      5863          1          -    Covered              
+    Cross cross_rx_addr                               100.00%        100          -    Covered              
+        covered/total bins:                               128        128          -                      
+        missing/total bins:                                 0        128          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <auto[1],auto[252:255]>                  1158          1          -    Covered              
+            bin <auto[0],auto[252:255]>                   497          1          -    Covered              
+            bin <auto[1],auto[248:251]>                    96          1          -    Covered              
+            bin <auto[0],auto[248:251]>                    96          1          -    Covered              
+            bin <auto[1],auto[244:247]>                    77          1          -    Covered              
+            bin <auto[0],auto[244:247]>                    67          1          -    Covered              
+            bin <auto[1],auto[240:243]>                    77          1          -    Covered              
+            bin <auto[0],auto[240:243]>                    78          1          -    Covered              
+            bin <auto[1],auto[236:239]>                    82          1          -    Covered              
+            bin <auto[0],auto[236:239]>                    69          1          -    Covered              
+            bin <auto[1],auto[232:235]>                    58          1          -    Covered              
+            bin <auto[0],auto[232:235]>                    67          1          -    Covered              
+            bin <auto[1],auto[228:231]>                    92          1          -    Covered              
+            bin <auto[0],auto[228:231]>                    86          1          -    Covered              
+            bin <auto[1],auto[224:227]>                    79          1          -    Covered              
+            bin <auto[0],auto[224:227]>                    64          1          -    Covered              
+            bin <auto[1],auto[220:223]>                   123          1          -    Covered              
+            bin <auto[0],auto[220:223]>                    78          1          -    Covered              
+            bin <auto[1],auto[216:219]>                    99          1          -    Covered              
+            bin <auto[0],auto[216:219]>                   114          1          -    Covered              
+            bin <auto[1],auto[212:215]>                    60          1          -    Covered              
+            bin <auto[0],auto[212:215]>                    35          1          -    Covered              
+            bin <auto[1],auto[208:211]>                    99          1          -    Covered              
+            bin <auto[0],auto[208:211]>                   107          1          -    Covered              
+            bin <auto[1],auto[204:207]>                    77          1          -    Covered              
+            bin <auto[0],auto[204:207]>                    74          1          -    Covered              
+            bin <auto[1],auto[200:203]>                   115          1          -    Covered              
+            bin <auto[0],auto[200:203]>                    85          1          -    Covered              
+            bin <auto[1],auto[196:199]>                    79          1          -    Covered              
+            bin <auto[0],auto[196:199]>                    74          1          -    Covered              
+            bin <auto[1],auto[192:195]>                   164          1          -    Covered              
+            bin <auto[0],auto[192:195]>                   143          1          -    Covered              
+            bin <auto[1],auto[188:191]>                   140          1          -    Covered              
+            bin <auto[0],auto[188:191]>                   133          1          -    Covered              
+            bin <auto[1],auto[184:187]>                    95          1          -    Covered              
+            bin <auto[0],auto[184:187]>                    77          1          -    Covered              
+            bin <auto[1],auto[180:183]>                   118          1          -    Covered              
+            bin <auto[0],auto[180:183]>                    99          1          -    Covered              
+            bin <auto[1],auto[176:179]>                    88          1          -    Covered              
+            bin <auto[0],auto[176:179]>                    62          1          -    Covered              
+            bin <auto[1],auto[172:175]>                    96          1          -    Covered              
+            bin <auto[0],auto[172:175]>                    89          1          -    Covered              
+            bin <auto[1],auto[168:171]>                   115          1          -    Covered              
+            bin <auto[0],auto[168:171]>                    97          1          -    Covered              
+            bin <auto[1],auto[164:167]>                   110          1          -    Covered              
+            bin <auto[0],auto[164:167]>                   122          1          -    Covered              
+            bin <auto[1],auto[160:163]>                    88          1          -    Covered              
+            bin <auto[0],auto[160:163]>                    72          1          -    Covered              
+            bin <auto[1],auto[156:159]>                   129          1          -    Covered              
+            bin <auto[0],auto[156:159]>                   106          1          -    Covered              
+            bin <auto[1],auto[152:155]>                   132          1          -    Covered              
+            bin <auto[0],auto[152:155]>                   127          1          -    Covered              
+            bin <auto[1],auto[148:151]>                   115          1          -    Covered              
+            bin <auto[0],auto[148:151]>                   139          1          -    Covered              
+            bin <auto[1],auto[144:147]>                    67          1          -    Covered              
+            bin <auto[0],auto[144:147]>                    48          1          -    Covered              
+            bin <auto[1],auto[140:143]>                   127          1          -    Covered              
+            bin <auto[0],auto[140:143]>                   114          1          -    Covered              
+            bin <auto[1],auto[136:139]>                    99          1          -    Covered              
+            bin <auto[0],auto[136:139]>                    90          1          -    Covered              
+            bin <auto[1],auto[132:135]>                    77          1          -    Covered              
+            bin <auto[0],auto[132:135]>                    85          1          -    Covered              
+            bin <auto[1],auto[128:131]>                   366          1          -    Covered              
+            bin <auto[0],auto[128:131]>                   204          1          -    Covered              
+            bin <auto[1],auto[124:127]>                    78          1          -    Covered              
+            bin <auto[0],auto[124:127]>                    64          1          -    Covered              
+            bin <auto[1],auto[120:123]>                   127          1          -    Covered              
+            bin <auto[0],auto[120:123]>                   103          1          -    Covered              
+            bin <auto[1],auto[116:119]>                    88          1          -    Covered              
+            bin <auto[0],auto[116:119]>                    71          1          -    Covered              
+            bin <auto[1],auto[112:115]>                    63          1          -    Covered              
+            bin <auto[0],auto[112:115]>                    83          1          -    Covered              
+            bin <auto[1],auto[108:111]>                    77          1          -    Covered              
+            bin <auto[0],auto[108:111]>                    81          1          -    Covered              
+            bin <auto[1],auto[104:107]>                   125          1          -    Covered              
+            bin <auto[0],auto[104:107]>                   110          1          -    Covered              
+            bin <auto[1],auto[100:103]>                    77          1          -    Covered              
+            bin <auto[0],auto[100:103]>                    62          1          -    Covered              
+            bin <auto[1],auto[96:99]>                     112          1          -    Covered              
+            bin <auto[0],auto[96:99]>                      95          1          -    Covered              
+            bin <auto[1],auto[92:95]>                      65          1          -    Covered              
+            bin <auto[0],auto[92:95]>                      50          1          -    Covered              
+            bin <auto[1],auto[88:91]>                      35          1          -    Covered              
+            bin <auto[0],auto[88:91]>                      27          1          -    Covered              
+            bin <auto[1],auto[84:87]>                     127          1          -    Covered              
+            bin <auto[0],auto[84:87]>                      88          1          -    Covered              
+            bin <auto[1],auto[80:83]>                      68          1          -    Covered              
+            bin <auto[0],auto[80:83]>                      71          1          -    Covered              
+            bin <auto[1],auto[76:79]>                      60          1          -    Covered              
+            bin <auto[0],auto[76:79]>                      68          1          -    Covered              
+            bin <auto[1],auto[72:75]>                      72          1          -    Covered              
+            bin <auto[0],auto[72:75]>                      51          1          -    Covered              
+            bin <auto[1],auto[68:71]>                      53          1          -    Covered              
+            bin <auto[0],auto[68:71]>                      47          1          -    Covered              
+            bin <auto[1],auto[64:67]>                     345          1          -    Covered              
+            bin <auto[0],auto[64:67]>                     206          1          -    Covered              
+            bin <auto[1],auto[60:63]>                     117          1          -    Covered              
+            bin <auto[0],auto[60:63]>                     133          1          -    Covered              
+            bin <auto[1],auto[56:59]>                      59          1          -    Covered              
+            bin <auto[0],auto[56:59]>                      63          1          -    Covered              
+            bin <auto[1],auto[52:55]>                     129          1          -    Covered              
+            bin <auto[0],auto[52:55]>                     108          1          -    Covered              
+            bin <auto[1],auto[48:51]>                      76          1          -    Covered              
+            bin <auto[0],auto[48:51]>                      68          1          -    Covered              
+            bin <auto[1],auto[44:47]>                      59          1          -    Covered              
+            bin <auto[0],auto[44:47]>                      64          1          -    Covered              
+            bin <auto[1],auto[40:43]>                      71          1          -    Covered              
+            bin <auto[0],auto[40:43]>                      68          1          -    Covered              
+            bin <auto[1],auto[36:39]>                     149          1          -    Covered              
+            bin <auto[0],auto[36:39]>                     132          1          -    Covered              
+            bin <auto[1],auto[32:35]>                     386          1          -    Covered              
+            bin <auto[0],auto[32:35]>                     198          1          -    Covered              
+            bin <auto[1],auto[28:31]>                     113          1          -    Covered              
+            bin <auto[0],auto[28:31]>                      96          1          -    Covered              
+            bin <auto[1],auto[24:27]>                     133          1          -    Covered              
+            bin <auto[0],auto[24:27]>                     130          1          -    Covered              
+            bin <auto[1],auto[20:23]>                     127          1          -    Covered              
+            bin <auto[0],auto[20:23]>                     110          1          -    Covered              
+            bin <auto[1],auto[16:19]>                     349          1          -    Covered              
+            bin <auto[0],auto[16:19]>                     215          1          -    Covered              
+            bin <auto[1],auto[12:15]>                      84          1          -    Covered              
+            bin <auto[0],auto[12:15]>                      75          1          -    Covered              
+            bin <auto[1],auto[8:11]>                      361          1          -    Covered              
+            bin <auto[0],auto[8:11]>                      185          1          -    Covered              
+            bin <auto[1],auto[4:7]>                       315          1          -    Covered              
+            bin <auto[0],auto[4:7]>                       138          1          -    Covered              
+            bin <auto[1],auto[0:3]>                     12022          1          -    Covered              
+            bin <auto[0],auto[0:3]>                      8163          1          -    Covered              
+    Cross cross_rst_signal                            100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <auto[1],RD_to_WR>                       1027          1          -    Covered              
+            bin <auto[0],RD_to_WR>                        257          1          -    Covered              
+            bin <auto[1],WR_to_RD>                       1023          1          -    Covered              
+            bin <auto[0],WR_to_RD>                        368          1          -    Covered              
+            bin <auto[1],RD_states>                      9205          1          -    Covered              
+            bin <auto[0],RD_states>                      4950          1          -    Covered              
+            bin <auto[1],WR_states>                     14995          1          -    Covered              
+            bin <auto[0],WR_states>                      6090          1          -    Covered              
+    Cross cross_signal_data                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin WR_data                                  8524          1          -    Covered              
+            bin RD_data                                  5782          1          -    Covered              
+            bin data_WR_trans                             770          1          -    Covered              
+            bin data_RW_trans                             639          1          -    Covered              
+    Cross cross_signal_rx                             100.00%        100          -    Covered              
+        covered/total bins:                                 5          5          -                      
+        missing/total bins:                                 0          5          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin WR_valid                                12500          1          -    Covered              
+            bin RD_valid                                 8119          1          -    Covered              
+            bin WR_to_RD_valid                            863          1          -    Covered              
+            bin RD_to_WR_valid                            804          1          -    Covered              
+            bin states_IDLE                             14621          1          -    Covered              
+    Cross cross_signal_addr                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin WR_OP                                   21085          1          -    Covered              
+            bin RD_OP                                   14155          1          -    Covered              
+            bin WR_to_RD_addr                            1391          1          -    Covered              
+            bin RD_to_WR_addr                            1284          1          -    Covered              
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/RAM_tb/DUT/ram_sva_inst/cover_reset     RAM_sva Verilog  SVA  RAM_sva.sv(122)  939 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_rx_inv    RAM_sva Verilog  SVA  RAM_sva.sv(125) 4530 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_save_wr   RAM_sva Verilog  SVA  RAM_sva.sv(128) 6793 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_wr_d      RAM_sva Verilog  SVA  RAM_sva.sv(131) 11526 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_save_rd   RAM_sva Verilog  SVA  RAM_sva.sv(134) 3593 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_rd_d      RAM_sva Verilog  SVA  RAM_sva.sv(137) 5649 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_tx_a      RAM_sva Verilog  SVA  RAM_sva.sv(140) 5649 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_tx_in     RAM_sva Verilog  SVA  RAM_sva.sv(143) 21912 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_wr_op     RAM_sva Verilog  SVA  RAM_sva.sv(146) 4158 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_rd_op     RAM_sva Verilog  SVA  RAM_sva.sv(149) 1501 Covered   
+/RAM_tb/DUT/ram_sva_inst/cover_main      RAM_sva Verilog  SVA  RAM_sva.sv(152)   37 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 100.00%  COVERS: 11
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/RAM_tb/stimulus_gen_reset/#anonblk#90584738#138#4#/#ublk#90584738#138/immed__139
+                     RAM_tb.sv(139)                     0          1
+/RAM_tb/ram_initial/#anonblk#90584738#185#4#/#ublk#90584738#185/immed__189
+                     RAM_tb.sv(189)                     0          1
+/RAM_tb/stimulus_gen1/#anonblk#90584738#207#4#/#ublk#90584738#207/immed__208
+                     RAM_tb.sv(208)                     0          1
+/RAM_tb/stimulus_gen2/#anonblk#90584738#226#4#/#ublk#90584738#226/immed__227
+                     RAM_tb.sv(227)                     0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_reset
+                     RAM_sva.sv(121)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_rx_inv
+                     RAM_sva.sv(124)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_save_wr
+                     RAM_sva.sv(127)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_wr_d
+                     RAM_sva.sv(130)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_save_rd
+                     RAM_sva.sv(133)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_rd_d
+                     RAM_sva.sv(136)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_tx_a
+                     RAM_sva.sv(139)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_tx_in
+                     RAM_sva.sv(142)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_wr_op
+                     RAM_sva.sv(145)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_rd_op
+                     RAM_sva.sv(148)                    0          1
+/RAM_tb/DUT/ram_sva_inst/assertion_main
+                     RAM_sva.sv(151)                    0          1
+
+Total Coverage By Instance (filtered view): 85.83%
+
